@@ -58,7 +58,7 @@ export class VideoTest extends Component {
   };
 
   onError = (err) => {
-    console.log('Error loading video', err);
+    console.error('Error loading video', err);
   }
 
   renderRateControl(rate) {
@@ -109,8 +109,9 @@ export class VideoTest extends Component {
         >
           <Video
             ref={(ref) => { this.video = ref }}
-            /* For ExoPlayer */
-            source={ require('./small.webm') }
+            /* Use this source for invalid file */
+            source={ require('./invalid.mp4') }
+            /* source={ require('./big_buck_bunny.mp4') } */
             style={styles.fullScreen}
             rate={this.state.rate}
             paused={this.state.paused}
